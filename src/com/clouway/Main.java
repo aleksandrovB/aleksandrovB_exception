@@ -1,11 +1,11 @@
 package com.clouway;
 
+import com.clouway.CustomExceptions.InputOutOfBoundsException;
+
 public class Main {
 
     public static void main(String[] args) {
-        SumStrings smstr = new SumStrings();
-        System.out.println(smstr.sum("2","3.123a"));
-        System.out.println(smstr.sum("3",null));
 
+            new ConsoleReaderInBounds().anotherReadInBounds(10,30);
     }
 }

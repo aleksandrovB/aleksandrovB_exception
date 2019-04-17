@@ -4,6 +4,12 @@ public class SumStrings {
     public SumStrings() {
     }
 
+    /**
+     * Sums two numbers
+     * @param a first number
+     * @param b second number
+     * @return float result casted to string
+     */
     public String sum(String a, String b){
         String result = null;
         try {
