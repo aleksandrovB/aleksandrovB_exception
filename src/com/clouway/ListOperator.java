@@ -42,9 +42,9 @@ public class ListOperator {
      * @throws ListEmptyException if list has nothing to remove
      */
     public void remove() throws ListEmptyException {
-        if(!list.isEmpty())
+        try {
             list.remove(list.size()-1);
-        else {
+        } catch (IndexOutOfBoundsException e){
             throw new ListEmptyException("List is empty");
         }
     }
