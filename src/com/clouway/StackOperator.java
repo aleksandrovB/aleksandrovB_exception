@@ -3,6 +3,7 @@ package com.clouway;
 import com.clouway.CustomExceptions.ListEmptyException;
 import com.clouway.CustomExceptions.ListFullException;
 
+import java.util.EmptyStackException;
 import java.util.Stack;
 
 public class StackOperator {
@@ -35,10 +36,11 @@ public class StackOperator {
      * @throws ListEmptyException if stack has nothing to remove
      */
     public void remove() throws ListEmptyException {
-        if(!stack.isEmpty())
+        try {
             stack.pop();
-        else
+        } catch (EmptyStackException e){
             throw new ListEmptyException("Stack is empty");
+        }
     }
 
     /**
