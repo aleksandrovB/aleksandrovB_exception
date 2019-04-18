@@ -11,6 +11,7 @@ public class ConsoleReaderInBounds {
     /**
      * Reads from console, parses it to int and compares it to leftBound and rightBound
      * Breaks if console input is not parsable integer or input is out of bounds
+     * Stops when terminationString is submitted
      * @param leftBound lower border
      * @param rightBound higher border
      * @throws InputOutOfBoundsException input is outside borders
@@ -37,7 +38,7 @@ public class ConsoleReaderInBounds {
 
     /**
      * Reads from console, parses it to int and compares it to leftBound and rightBound
-     * Stops reading when "stop" is submitted
+     * Stops reading when terminationString is submitted
      * @param leftBound lower border
      * @param rightBound higher border
      */
