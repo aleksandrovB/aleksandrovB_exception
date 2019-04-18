@@ -7,7 +7,6 @@ public class Main {
 
     public static void main(String[] args) {
         ListOperator listOperator = new ListOperator(4);
-
         try {
             listOperator.remove();
         } catch (ListEmptyException e) {
@@ -23,7 +22,12 @@ public class Main {
 
             StackOperator stackOperator = new StackOperator(5);
 
-            for(int i = 0 ; i<6 ; i++){
+        try {
+            stackOperator.remove();
+        } catch (ListEmptyException e) {
+            e.printStackTrace();
+        }
+        for(int i = 0 ; i<6 ; i++){
                 try {
                     stackOperator.add(i);
                 } catch (ListFullException e) {
@@ -31,5 +35,11 @@ public class Main {
                 }
             }
             stackOperator.printAllElements();
+
+        try {
+            new SumStrings().sum("", null);
+        } catch (NullPointerException | NumberFormatException e){
+            e.printStackTrace();
+        }
     }
 }

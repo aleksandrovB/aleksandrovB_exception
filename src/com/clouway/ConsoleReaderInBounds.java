@@ -15,21 +15,22 @@ public class ConsoleReaderInBounds {
      * @param rightBound higher border
      * @throws InputOutOfBoundsException input is outside borders
      */
-    public void readInBounds(int leftBound, int rightBound) throws InputOutOfBoundsException {
-        try (Scanner scan = new Scanner(System.in)) {
+    public void readInBounds(int leftBound, int rightBound, String terminationString) throws InputOutOfBoundsException {
+        Scanner scan = new Scanner(System.in);
+        try {
             String nextLine;
             int input;
             do {
                 nextLine = scan.nextLine();
-                if (nextLine.equals("stop"))
+                if (nextLine.equals(terminationString))
                     break;
                 input = Integer.parseInt(nextLine);
                 System.out.println(input);
             } while (leftBound <= input && input <= rightBound);
-            if (!nextLine.equals("stop"))
+            if (!nextLine.equals(terminationString))
                 throw new InputOutOfBoundsException("Number is out of bounds");
         } catch (NumberFormatException e) {
-            System.err.println(e.getMessage() + " is not a parsable integer");
+            System.out.println(e.getMessage() + " is not a parsable integer");
         }
 
     }
@@ -40,25 +41,25 @@ public class ConsoleReaderInBounds {
      * @param leftBound lower border
      * @param rightBound higher border
      */
-    public void anotherReadInBounds(int leftBound, int rightBound) {
-        try (Scanner scan = new Scanner(System.in)) {
-            String nextLine;
-            int input;
-            do {
-                nextLine = scan.nextLine();
-                try {
-                    input = Integer.parseInt(nextLine);
-                    if(leftBound > input || input > rightBound){
-                        throw new InputOutOfBoundsException("Input is out of bounds");
-                    }else
-                        System.out.println(input);
-                }catch (InputOutOfBoundsException e){
-                    System.err.println(e.getMessage());
-                }catch (NumberFormatException e){
-                    if(!nextLine.equals("stop"))
-                        System.err.println(e.getMessage() + " is not a parsable integer");
-                }
-            }while (!nextLine.equals("stop"));
-        }
+    public void anotherReadInBounds(int leftBound, int rightBound, String terminationString) {
+        Scanner scan = new Scanner(System.in);
+        String nextLine;
+        int input;
+        do {
+            nextLine = scan.nextLine();
+            try {
+                input = Integer.parseInt(nextLine);
+                if(leftBound > input || input > rightBound){
+                    throw new InputOutOfBoundsException("Input is out of bounds");
+                }else
+                    System.out.println(input);
+            }catch (InputOutOfBoundsException e){
+                System.out.println(e.getMessage());
+            }catch (NumberFormatException e){
+                if(!nextLine.equals(terminationString))
+                    System.out.println(e.getMessage() + " is not a parsable integer");
+            }
+        }while (!nextLine.equals(terminationString));
+
     }
 }
